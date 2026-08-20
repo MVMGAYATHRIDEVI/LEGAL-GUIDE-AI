@@ -534,3 +534,289 @@ footer{
         flex-direction:column;
     }
 }
+/* =========================================================
+   ADVANCED LEGAL ANALYSIS
+   ========================================================= */
+
+.advanced-analysis {
+    padding: 35px 0 55px;
+    background: transparent;
+}
+
+.advanced-container {
+    max-width: 1000px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    gap: 22px;
+
+    padding: 22px 26px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(30, 41, 59, 0.96),
+            rgba(15, 23, 42, 0.98)
+        );
+
+    border: 1px solid rgba(212, 175, 55, 0.35);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.advanced-container:hover {
+    transform: translateY(-3px);
+
+    border-color: rgba(212, 175, 55, 0.7);
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.32),
+        0 0 25px rgba(212, 175, 55, 0.06);
+}
+
+
+/* ================= ICON ================= */
+
+.advanced-icon {
+    flex-shrink: 0;
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(212, 175, 55, 0.10);
+
+    border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.advanced-icon i {
+    color: var(--gold-light);
+
+    font-size: 21px;
+}
+
+
+/* ================= CONTENT ================= */
+
+.advanced-content {
+    flex: 1;
+    min-width: 0;
+}
+
+
+/* ================= LABEL ================= */
+
+.advanced-label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--gold-light);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+
+    text-transform: uppercase;
+}
+
+
+/* ================= TITLE ================= */
+
+.advanced-content h2 {
+    margin: 0 0 6px;
+
+    color: #ffffff;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 28px;
+
+    line-height: 1.15;
+
+    font-weight: 700;
+}
+
+.advanced-content h2 span {
+    color: var(--gold-light);
+}
+
+
+/* ================= DESCRIPTION ================= */
+
+.advanced-content p {
+    margin: 0;
+
+    max-width: 650px;
+
+    color: #cbd5e1;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* ================= ADVANCED BUTTON ================= */
+
+.advanced-btn {
+    flex-shrink: 0;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 11px 17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold),
+            var(--gold-light)
+        );
+
+    color: #111827;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 7px 20px rgba(212, 175, 55, 0.16);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.advanced-btn:hover {
+    transform: translateY(-2px);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            #ffe58a
+        );
+
+    box-shadow:
+        0 10px 25px rgba(212, 175, 55, 0.28);
+}
+
+.advanced-btn i {
+    font-size: 11px;
+}
+
+.advanced-btn i:last-child {
+    transition: transform 0.3s ease;
+}
+
+.advanced-btn:hover i:last-child {
+    transform: translate(2px, -2px);
+}
+
+
+/* =========================================================
+   ADVANCED CARD — TABLET
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .advanced-container {
+        flex-wrap: wrap;
+
+        padding: 22px;
+    }
+
+    .advanced-content {
+        flex: 1;
+    }
+
+    .advanced-btn {
+        margin-left: 74px;
+    }
+}
+
+
+/* =========================================================
+   ADVANCED CARD — MOBILE
+   ========================================================= */
+
+@media (max-width: 550px) {
+
+    .advanced-analysis {
+        padding: 25px 0 40px;
+    }
+
+    .advanced-container {
+        display: grid;
+
+        grid-template-columns: auto 1fr;
+
+        gap: 14px;
+
+        padding: 20px;
+
+        border-radius: 14px;
+    }
+
+    .advanced-icon {
+        width: 46px;
+        height: 46px;
+    }
+
+    .advanced-icon i {
+        font-size: 18px;
+    }
+
+    .advanced-content h2 {
+        font-size: 23px;
+    }
+
+    .advanced-content p {
+        font-size: 11px;
+
+        line-height: 1.6;
+    }
+
+    .advanced-btn {
+        grid-column: 1 / -1;
+
+        width: 100%;
+
+        margin: 3px 0 0;
+
+        padding: 12px;
+
+        font-size: 11px;
+    }
+}
