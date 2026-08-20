@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="LegalGuide AI - AI-powered legal information and educational assistance."
+    >
+
+    <title>Ask a Legal Question | LegalGuide AI</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/ask.css"
+    >
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <span>LegalGuide AI</span>
+        </a>
+
+        <nav>
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="ask.html" class="active">
+                        Ask a Legal Question
+                    </a>
+                </li>
+
+                <li>
+                    <a href="history.html">
+                        History
+                    </a>
+                </li>
+
+                <li>
+                    <a href="about.html">
+                        About
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main>
+
+<section class="question-section">
+
+    <div class="container">
+
+        <div class="page-heading">
+
+            <div class="heading-badge">
+                <i class="fa-solid fa-scale-balanced"></i>
+                AI LEGAL ASSISTANT
+            </div>
+
+            <h1>
+                Describe Your
+                <span>Legal Issue</span>
+            </h1>
+
+            <p>
+                Explain your legal situation clearly.
+                LegalGuide AI will identify the relevant
+                legal area, applicable law, relevant provisions,
+                legal analysis, possible remedies and similar
+                previous situations.
+            </p>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="form-group">
+
+                <label for="legalQuestion">
+                    <i class="fa-solid fa-circle-question"></i>
+                    Your Legal Question
+                </label>
+
+                <textarea
+                    id="legalQuestion"
+                    name="legalQuestion"
+                    rows="8"
+                    maxlength="10000"
+                    placeholder="Example: My employer has not paid my salary for two months. What legal remedies are available?"
+                    autocomplete="off"
+                ></textarea>
+
+                <div class="character-info">
+
+                    <span>
+                        Describe the incident clearly.
+                    </span>
+
+                    <span id="characterCount">
+                        0 / 10000 characters
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="language">
+                    <i class="fa-solid fa-language"></i>
+                    Preferred Language
+                </label>
+
+                <select
+                    id="language"
+                    name="language"
+                >
+
+                    <option value="english">
+                        English
+                    </option>
+
+                    <option value="telugu">
+                        తెలుగు (Telugu)
+                    </option>
+
+                    <option value="hindi">
+                        हिन्दी (Hindi)
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="analyzeBtn"
+                class="analyze-btn"
+            >
+
+                <span id="analyzeBtnText">
+                    Analyze Case
+                </span>
+
+                <i
+                    id="analyzeIcon"
+                    class="fa-solid fa-arrow-right"
+                ></i>
+
+            </button>
+
+
+            <div
+                id="loadingMessage"
+                class="loading-message"
+                style="display:none;"
+            >
+
+                <div class="loading-spinner"></div>
+
+                <span>
+                    Analyzing your legal issue...
+                </span>
+
+            </div>
+
+
+            <div class="disclaimer">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                <p>
+                    LegalGuide AI provides general legal information
+                    and educational guidance. It does not replace
+                    advice from a qualified legal professional.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section
+    id="resultSection"
+    class="result-section"
+    style="display:none;"
+>
+
+    <div class="container">
+
+
+        <div class="report-header">
+
+            <div>
+
+                <div class="report-label">
+                    <i class="fa-solid fa-file-lines"></i>
+                    LEGALGUIDE AI
+                </div>
+
+                <h2>
+                    Legal Analysis Report
+                </h2>
+
+                <p>
+                    General legal information based on
+                    the question provided.
+                </p>
+
+            </div>
+
+            <div
+                id="confidenceBadge"
+                class="confidence-badge"
+            >
+                Match Confidence
+            </div>
+
+        </div>
+
+
+
+        <div class="detected-area-card">
+
+            <div class="detected-icon">
+                <i class="fa-solid fa-gavel"></i>
+            </div>
+
+            <div>
+
+                <span class="small-label">
+                    DETECTED LEGAL AREA
+                </span>
+
+                <h3 id="legalArea">
+                    Not Identified
+                </h3>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="report-card">
+
+            <div class="report-number">
+                01
+            </div>
+
+            <div class="report-content">
+
+                <h3>
+                    Applicable Law
+                </h3>
+
+                <p
+                    id="lawResult"
+                    class="law-result"
+                >
+                    Legal Consultation Required
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="report-card">
+
+            <div class="report-number">
+                02
+            </div>
+
+            <div class="report-content">
+
+                <h3>
+                    Relevant Section
+                </h3>
+
+                <p
+                    id="sectionResult"
+                    class="section-result"
+                >
+                    Not Identified
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="report-card">
+
+            <div class="report-number">
+                03
+            </div>
+
+            <div class="report-content">
+
+                <h3>
+                    Legal Analysis
+                </h3>
+
+                <p id="analysisResult">
+                    No analysis available.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="report-card">
+
+            <div class="report-number">
+                04
+            </div>
+
+            <div class="report-content">
+
+                <h3>
+                    Suggested Remedy
+                </h3>
+
+                <p id="remedyResult">
+                    No specific remedy available.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SIMILAR PREVIOUS SITUATIONS -->
+
+        <div class="report-card">
+
+            <div class="report-number">
+                05
+            </div>
+
+            <div class="report-content">
+
+                <h3>
+                    Similar Previous Situations
+                </h3>
+
+                <p id="previousResult">
+                    No similar situation information available.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="question-preview">
+
+            <div class="preview-heading">
+
+                <i class="fa-solid fa-message"></i>
+
+                Your Question
+
+            </div>
+
+            <p id="questionPreview">
+                —
+            </p>
+
+        </div>
+
+
+
+        <div class="report-actions">
+
+            <button
+                type="button"
+                id="downloadPdfBtn"
+                class="download-btn"
+            >
+
+                <i class="fa-solid fa-file-pdf"></i>
+
+                Download PDF Report
+
+            </button>
+
+
+            <button
+                type="button"
+                id="newQuestionBtn"
+                class="new-question-btn"
+            >
+
+                <i class="fa-solid fa-rotate-right"></i>
+
+                Ask Another Question
+
+            </button>
+
+        </div>
+
+
+
+        <div class="report-disclaimer">
+
+            <i class="fa-solid fa-triangle-exclamation"></i>
+
+            <p>
+                This report is generated for general informational
+                and educational purposes. Laws and legal procedures
+                may vary depending on the facts and jurisdiction.
+                Please consult a qualified legal professional for
+                advice specific to your situation.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<footer>
+
+    <div class="container footer-content">
+
+        <div class="footer-logo">
+
+            <i class="fa-solid fa-scale-balanced"></i>
+
+            <span>
+                LegalGuide AI
+            </span>
+
+        </div>
+
+        <p>
+            AI-powered legal information and educational assistance.
+        </p>
+
+        <p class="copyright">
+            © 2026 LegalGuide AI. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<script src="js/database.js"></script>
+
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+></script>
+
+<script src="js/ask.js"></script>
+
+</body>
+</html>
